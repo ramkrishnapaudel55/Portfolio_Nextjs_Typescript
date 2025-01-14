@@ -1,0 +1,66 @@
+# Create new Next.js project
+npx create-next-app@latest portfolio --typescript --tailwind --eslint
+
+# Navigate to project
+cd portfolio
+
+# Install dependencies
+npm install @hookform/resolvers zod react-hook-form
+npm install @emailjs/browser
+npm install lucide-react
+npm install framer-motion
+npm install sharp
+
+
+# Install shadcn/ui
+npx shadcn@latest init
+
+# Install required shadcn components
+npx shadcn@latest add button
+npx shadcn@latest add form
+npx shadcn@latest add input
+npx shadcn@latest add textarea
+npx shadcn@latest add alert
+npx shadcn@latest add card
+npx shadcn@latest add separator
+npx shadcn@latest add sheet
+
+
+
+
+
+
+
+new from here
+npx create-next-app@latest portfolio
+
+
+npm cache clean --force 
+
+
+npx --package=@shadcn/ui shadcn-ui init
+
+
+
+src/
+├── app/
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   ├── ui/  # shadcn components
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Skills.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   └── shared/
+│       ├── NavBar.tsx
+│       └── SectionHeading.tsx
+├── lib/
+│   └── constants.ts
+├── styles/
+│   └── globals.css
+└── types/
+    └── index.ts
