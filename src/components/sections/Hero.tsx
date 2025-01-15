@@ -61,6 +61,13 @@ const Hero = () => {
     }
   };
 
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="min-h-screen relative overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
       {/* Animated gradient background */}
@@ -126,6 +133,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 className="min-w-[160px] hover:scale-105 transition-transform"
+                onClick={scrollToProjects}
               >
                 View Projects
               </Button>

@@ -64,3 +64,16 @@ src/
 │   └── globals.css
 └── types/
     └── index.ts
+
+    racfe react components templates
+
+    npx shadcn-ui@latest add card
+npx shadcn-ui@latest add hover-card
+npx shadcn-ui@latest add badge
+npx shadcn-ui@latest add button
+npx shadcn-ui@latest add checkbox
+npx shadcn-ui@latest add input
+npx shadcn-ui@latest add label
+npx shadcn-ui@latest add link
+npx shadcn-ui@latest add radio
+npx shadcn-ui@latest add select
