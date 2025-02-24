@@ -120,9 +120,9 @@ const Projects = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-7xl mx-auto space-y-12"
+        className="w-full px-4 sm:px-6 lg:px-8"
       >
-        <div className="text-center space-y-4">
+        <div className="text-center space-y-4 mb-12">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -141,13 +141,16 @@ const Projects = () => {
         </div>
 
         <Tabs defaultValue="All" className="w-full">
-          <TabsList className="flex justify-center mb-8">
+          <TabsList className="flex justify-center mb-8 bg-white dark:bg-[#09090b] rounded-lg p-1">
             {categories.map((category) => (
               <TabsTrigger
                 key={category}
                 value={category}
                 onClick={() => setActiveCategory(category as Category)}
-                className="px-4 py-2"
+                className="px-4 py-2 text-gray-600 dark:text-gray-300 transition-all duration-300 
+                          hover:text-purple-500 dark:hover:text-purple-400 
+                          data-[state=active]:bg-purple-500 data-[state=active]:text-white 
+                          rounded-md"
               >
                 {category}
               </TabsTrigger>
@@ -159,14 +162,14 @@ const Projects = () => {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8"
             >
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={index}
                   variants={projectVariants}
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                  className="group"
+                  className="group w-full"
                 >
                   <Card className="overflow-hidden border border-border bg-card hover:bg-accent/5 transition-all duration-300">
                     <div className="relative overflow-hidden">

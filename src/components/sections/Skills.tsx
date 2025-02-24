@@ -77,18 +77,18 @@ const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-background to-background/80">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background to-background/80">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Technical Skills"
           subtitle="Technologies I work with"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12">
           {Object.entries(skillsData).map(([category, skills]) => (
             <Card 
               key={category}
-              className="p-6 hover:shadow-xl transition-all duration-300 border-t-4 hover:scale-[1.02]"
+              className="p-4 sm:p-6 hover:shadow-xl transition-all duration-300 border-t-4 hover:scale-[1.02] h-full"
               style={{
                 borderTopColor: category.includes("Frontend") ? "#3B82F6" :
                               category.includes("Backend") ? "#10B981" :
@@ -96,12 +96,12 @@ const Skills = () => {
                               "#EF4444"
               }}
             >
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                 {categoryIcons[category as keyof typeof categoryIcons]}
-                <h3 className="text-xl font-semibold">{category}</h3>
+                <h3 className="text-lg sm:text-xl font-semibold">{category}</h3>
               </div>
               
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {skills.map((skill) => (
                   <div
                     key={skill.name}
@@ -111,13 +111,14 @@ const Skills = () => {
                   >
                     <Badge 
                       variant={hoveredSkill === skill.name ? "secondary" : "outline"}
-                      className="px-3 py-1.5 text-sm cursor-pointer transition-all duration-200 
-                               hover:shadow-md flex items-center gap-2 group-hover:scale-105"
+                      className="px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm cursor-pointer transition-all duration-200 
+                               hover:shadow-md flex items-center gap-1.5 sm:gap-2 group-hover:scale-105"
                     >
                       {getIconForSkill(skill.name)}
-                      {skill.name}
+                      <span className="hidden xs:inline">{skill.name}</span>
+                      <span className="xs:hidden">{skill.name.split('.')[0]}</span>
                       <span 
-                        className={`h-2 w-2 rounded-full inline-block
+                        className={`h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full inline-block
                           ${skill.level === 'Advanced' ? 'bg-green-500' : 
                             skill.level === 'Intermediate' ? 'bg-yellow-500' : 
                             'bg-blue-500'}`}
@@ -130,13 +131,13 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center gap-6 text-sm text-muted-foreground">
+        <div className="mt-6 sm:mt-8 flex justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-green-500"/>
+            <span className="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-green-500"/>
             Advanced
           </div>
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-yellow-500"/>
+            <span className="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-yellow-500"/>
             Intermediate
           </div>
         </div>
