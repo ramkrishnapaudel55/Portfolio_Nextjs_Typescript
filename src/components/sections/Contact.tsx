@@ -152,7 +152,7 @@ const onSubmit = async (values: FormValues) => {
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => window.open('./RamKrishna_CV.pdf', '_blank')}
+                onClick={() => window.open('./Ramkrishna_CV.pdf', '_blank')}
               >
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
