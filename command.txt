@@ -77,3 +77,9 @@ npx shadcn-ui@latest add label
 npx shadcn-ui@latest add link
 npx shadcn-ui@latest add radio
 npx shadcn-ui@latest add select
+
+
+
+start command
+
+. /opt/venv/bin/activate && pip install gunicorn && python3 manage.py migrate && gunicorn createads.wsgi:application --bind 0.0.0.0:8080
