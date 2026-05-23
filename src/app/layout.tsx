@@ -1,10 +1,10 @@
-import { Inter } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/themes/theme-provider';
 import NavBar from '@/components/shared/NavBar';
 import Footer from '@/components/sections/Footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const outfit = Outfit({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <head>
       <link rel="icon" href="./favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
@@ -21,10 +21,10 @@ export default function RootLayout({
         <link rel="manifest" href="./site.webmanifest" />
         <title>Portfolio Ram Krishna Paudel</title>
       </head>
-      <body className={inter.className}>
+      <body className={outfit.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

@@ -58,93 +58,95 @@ const NavBar = () => {
   ];
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b shadow-sm"
-          : "bg-background/50 backdrop-blur-sm"
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a
-          href="#"
-          className="text-xl font-bold hover:text-primary transition-colors duration-300 flex items-center gap-2"
-        >
-          <span className="text-2xl">👨‍💻</span>
-          <span className="font-extrabold bg-gradient-to-r from-primary to-primary/50 bg-clip-text text-transparent">
-            Portfolio
-          </span>
-        </a>
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full pt-4 px-4 pointer-events-none">
+      <header
+        className={`pointer-events-auto transition-all duration-500 rounded-full border ${
+          isScrolled
+            ? "bg-background/70 backdrop-blur-xl border-border/50 shadow-[0_8px_32px_rgba(34,197,94,0.12)] w-full max-w-4xl py-2"
+            : "bg-background/20 backdrop-blur-md border-transparent w-full max-w-7xl py-4"
+        }`}
+      >
+        <nav className="px-6 flex items-center justify-between">
+          <a
+            href="#"
+            className="text-xl font-bold hover:text-primary transition-colors duration-300 flex items-center gap-2"
+          >
+            <span className="text-2xl drop-shadow-md">👨‍💻</span>
+            <span className="font-extrabold bg-gradient-to-r from-primary via-emerald-400 to-green-500 bg-clip-text text-transparent hidden sm:inline-block">
+              Portfolio
+            </span>
+          </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href.slice(1))}
-                className={`group flex items-center gap-1 text-sm font-medium transition-colors relative ${
-                  activeSection === link.href.slice(1)
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {link.icon}
-                </span>
-                {link.label}
-                {activeSection === link.href.slice(1) && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full" />
-                )}
-              </a>
-            ))}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8 bg-background/40 px-6 py-2 rounded-full border border-border/20 shadow-inner">
+            <div className="flex gap-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href.slice(1))}
+                  className={`group flex items-center gap-1 text-sm font-medium transition-colors relative ${
+                    activeSection === link.href.slice(1)
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.label}
+                  {activeSection === link.href.slice(1) && (
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
+                  )}
+                </a>
+              ))}
+            </div>
           </div>
-          <ThemeToggle />
-        </div>
+          
+          <div className="hidden md:flex">
+            <ThemeToggle />
+          </div>
 
-        {/* Mobile Navigation */}
-        <div className="flex items-center gap-4 md:hidden">
-          <ThemeToggle />
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:bg-primary/10"
-              >
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <SheetClose className="absolute right-4 top-4">
-                <X className="h-6 w-6" />
-              </SheetClose>
-              <div className="flex flex-col gap-6 mt-12">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link.href.slice(1))}
-                    className={`group flex items-center justify-between text-lg transition-colors p-2 rounded-lg ${
-                      activeSection === link.href.slice(1)
-                        ? "bg-primary/10 text-primary"
-                        : "hover:bg-primary/5"
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      <span>{link.icon}</span>
-                      {link.label}
-                    </span>
-                    <ChevronRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                ))}
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </nav>
-    </header>
+          {/* Mobile Navigation */}
+          <div className="flex items-center gap-4 md:hidden">
+            <ThemeToggle />
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hover:bg-primary/10 rounded-full"
+                >
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="bg-background/90 backdrop-blur-xl border-l-primary/20">
+                <SheetClose className="absolute right-4 top-4 rounded-full hover:bg-primary/20">
+                  <X className="h-6 w-6" />
+                </SheetClose>
+                <div className="flex flex-col gap-6 mt-16">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => handleLinkClick(e, link.href.slice(1))}
+                      className={`group flex items-center justify-between text-lg transition-all duration-300 p-3 rounded-xl border border-transparent ${
+                        activeSection === link.href.slice(1)
+                          ? "bg-primary/10 text-primary border-primary/20 shadow-[0_0_15px_rgba(34,197,94,0.1)]"
+                          : "hover:bg-primary/5 hover:border-border/50"
+                      }`}
+                    >
+                      <span className="flex items-center gap-3">
+                        <span>{link.icon}</span>
+                        {link.label}
+                      </span>
+                      <ChevronRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </nav>
+      </header>
+    </div>
   );
 };
 

@@ -123,11 +123,11 @@ const Projects = () => {
         className="w-full px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center space-y-4 mb-12">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500 dark:from-purple-400 dark:to-pink-400"
-          >
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-green-500 animate-gradient"
+            >
             Featured Projects
           </motion.h1>
           <motion.p
@@ -141,16 +141,16 @@ const Projects = () => {
         </div>
 
         <Tabs defaultValue="All" className="w-full">
-          <TabsList className="flex flex-wrap justify-center mb-8 bg-white dark:bg-[#09090b] rounded-lg p-1 h-auto">
+          <TabsList className="flex flex-wrap justify-center mb-8 bg-background/50 backdrop-blur-md border border-border/50 rounded-lg p-1 h-auto shadow-sm">
             {categories.map((category) => (
               <TabsTrigger
                 key={category}
                 value={category}
                 onClick={() => setActiveCategory(category as Category)}
-                className="px-4 py-2 text-gray-600 dark:text-gray-300 transition-all duration-300 
-                          hover:text-purple-500 dark:hover:text-purple-400 
-                          data-[state=active]:bg-purple-500 data-[state=active]:text-white 
-                          rounded-md"
+                className="px-5 py-2 text-muted-foreground transition-all duration-300 
+                          hover:text-primary 
+                          data-[state=active]:bg-primary data-[state=active]:text-primary-foreground 
+                          rounded-md shadow-sm"
               >
                 {category}
               </TabsTrigger>
@@ -171,7 +171,7 @@ const Projects = () => {
                   whileHover={{ y: -8, transition: { duration: 0.2 } }}
                   className="group w-full"
                 >
-                  <Card className="overflow-hidden border border-border bg-card hover:bg-accent/5 transition-all duration-300">
+                  <Card className="overflow-hidden border border-border/50 bg-card/40 backdrop-blur-md hover:bg-card/60 transition-all duration-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] group-hover:-translate-y-2">
                     <div className="relative overflow-hidden">
                       <img
                         src={project.image}

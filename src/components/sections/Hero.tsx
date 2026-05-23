@@ -70,57 +70,58 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden bg-gradient-to-b from-background via-background/95 to-background">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background opacity-75 animate-gradient" />
+    <section className="min-h-screen relative overflow-hidden bg-background">
+      {/* Animated gradient background blobs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-[pulse_8s_ease-in-out_infinite]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-600/20 rounded-full blur-[120px] animate-[pulse_10s_ease-in-out_infinite_reverse]" />
+      <div className="absolute top-[40%] left-[60%] w-[30%] h-[30%] bg-green-600/20 rounded-full blur-[100px] animate-[pulse_12s_ease-in-out_infinite]" />
 
-      <div className="relative container mx-auto px-6 py-20 min-h-screen flex items-center">
+      <div className="relative container mx-auto px-6 py-20 min-h-screen flex items-center z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left content section */}
           <motion.div
             initial="hidden"
             animate="show"
             variants={containerVariants}
-            className="max-w-2xl"
+            className="max-w-2xl relative"
           >
-            <motion.div variants={itemVariants} className="mb-6">
-              <span className="text-primary font-semibold inline-block px-4 py-2 rounded-full bg-primary/10">
-                Hello, I'm
+            <div className="absolute -left-6 top-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full hidden md:block opacity-50" />
+            <motion.div variants={itemVariants} className="mb-6 md:pl-8">
+              <span className="text-primary font-semibold tracking-wider uppercase text-sm inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md">
+                System Initialized: Access Granted
               </span>
-              <h1 className="text-5xl lg:text-6xl font-bold mt-4 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/50">
-                Ram Krishna Paudel
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mt-6 mb-4 tracking-tight text-foreground">
+                I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-green-500 animate-gradient">Ram Krishna</span>
               </h1>
-              <h2 className="text-2xl lg:text-3xl text-muted-foreground font-medium">
-                Backend Developer
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl text-muted-foreground font-medium">
+                Expert Backend Developer
               </h2>
             </motion.div>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg text-muted-foreground mb-8"
+              className="text-lg sm:text-xl text-muted-foreground/80 leading-relaxed mb-10 md:pl-8 font-light"
             >
-              I craft robust and scalable backend systems, bringing ideas to
-              life through clean code and optimized architectures.
-              Specializing in modern web technologies and backend
-              development.
+              I architect robust, scalable, and high-performance backend systems. 
+              Turning complex problems into elegant, clean code solutions.
             </motion.p>
 
             <motion.div
               variants={containerVariants}
-              className="flex flex-wrap gap-3 mb-8"
+              className="flex flex-wrap gap-3 mb-10 md:pl-8"
             >
               {technologies.map((tech) => (
                 <motion.div
                   key={tech.name}
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <Badge
-                    variant="secondary"
-                    className="px-4 py-2 text-sm hover:bg-primary/20 transition-colors duration-300"
+                    variant="outline"
+                    className="px-4 py-2.5 text-sm font-medium bg-background/40 backdrop-blur-md border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 shadow-sm"
                   >
-                    <span className="mr-2 text-primary">{tech.icon}</span>
+                    <span className="mr-2 text-lg drop-shadow-md">{tech.icon}</span>
                     {tech.name}
                   </Badge>
                 </motion.div>
@@ -129,7 +130,7 @@ const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 md:pl-8"
             >
               <Button
                 size="lg"
@@ -156,157 +157,128 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden lg:block"
           >
-            <div className="relative w-full h-[600px]">
-              <svg viewBox="0 0 400 400" className="w-full h-full">
+            <div className="relative w-full h-[600px] flex items-center justify-center">
+              {/* Abstract 3D/Tech Constellation SVG */}
+              <svg viewBox="0 0 500 500" className="w-full h-full max-w-[500px]">
                 <defs>
-                  {/* Gradients */}
-                  <linearGradient
-                    id="skinGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop offset="0%" stopColor="#ffb6a3" />
-                    <stop offset="100%" stopColor="#ff8c7a" />
+                  <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#10b981" stopOpacity="0.4" />
                   </linearGradient>
-                  <linearGradient
-                    id="shirtGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="0%"
-                      className="text-primary"
-                      stopColor="currentColor"
-                      stopOpacity="0.8"
-                    />
-                    <stop
-                      offset="100%"
-                      className="text-primary"
-                      stopColor="currentColor"
-                      stopOpacity="0.6"
-                    />
-                  </linearGradient>
+                  <radialGradient id="core" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="var(--primary)" stopOpacity="1" />
+                    <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+                  </radialGradient>
+                  <filter id="blurGlow">
+                    <feGaussianBlur stdDeviation="8" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
                 </defs>
 
-                {/* Background Elements */}
-                <circle
-                  cx="200"
-                  cy="200"
-                  r="160"
-                  className="text-primary"
-                  fill="currentColor"
-                  opacity="0.1"
-                >
-                  <animate
-                    attributeName="r"
-                    values="160;170;160"
-                    dur="4s"
+                <g className="origin-center" style={{ transformOrigin: "250px 250px" }}>
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 250 250"
+                    to="360 250 250"
+                    dur="40s"
                     repeatCount="indefinite"
                   />
-                </circle>
-
-                {/* Developer Figure */}
-                <g>
-                  {/* Head */}
-                  <circle cx="200" cy="150" r="50" fill="url(#skinGradient)">
-                    <animate
-                      attributeName="transform"
-                      type="scale"
-                      values="1;1.05;1"
-                      dur="2s"
-                      repeatCount="indefinite"
-                      additive="sum"
+                  
+                  {/* Outer Orbit */}
+                  <circle cx="250" cy="250" r="200" fill="none" stroke="url(#glow)" strokeWidth="1" strokeDasharray="4 8" opacity="0.5" />
+                  <circle cx="250" cy="50" r="6" fill="#22c55e" filter="url(#blurGlow)" />
+                  <circle cx="450" cy="250" r="4" fill="#10b981" />
+                  <circle cx="50" cy="250" r="8" fill="#22c55e" opacity="0.8" />
+                  
+                  {/* Middle Orbit */}
+                  <circle cx="250" cy="250" r="130" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary" opacity="0.3" />
+                  
+                  {/* Hexagon Core */}
+                  <g filter="url(#blurGlow)">
+                    <polygon 
+                      points="250,150 336.6,200 336.6,300 250,350 163.4,300 163.4,200" 
+                      fill="none" 
+                      stroke="url(#glow)" 
+                      strokeWidth="2"
                     />
-                  </circle>
-
-                  {/* Body */}
-                  <path
-                    d="M150 200 L250 200 L270 350 L130 350 Z"
-                    fill="url(#shirtGradient)"
-                    className="text-primary"
-                  >
-                    <animate
-                      attributeName="transform"
-                      type="translate"
-                      values="0,0; 0,-5; 0,0"
-                      dur="2s"
-                      repeatCount="indefinite"
-                      additive="sum"
+                    <polygon 
+                      points="250,170 319.3,210 319.3,290 250,330 180.7,290 180.7,210" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      className="text-primary"
+                      strokeWidth="1"
+                      opacity="0.5"
                     />
-                  </path>
-
-                  {/* Glasses */}
-                  <path
-                    d="M170 140 L230 140"
-                    stroke="#333"
-                    strokeWidth="4"
-                    fill="none"
-                  />
-                  <circle
-                    cx="180"
-                    cy="140"
-                    r="12"
-                    stroke="#333"
-                    strokeWidth="4"
-                    fill="none"
-                  />
-                  <circle
-                    cx="220"
-                    cy="140"
-                    r="12"
-                    stroke="#333"
-                    strokeWidth="4"
-                    fill="none"
-                  />
-
-                  {/* Code Elements */}
-                  <g
-                    className="text-primary"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    {[...Array(5)].map((_, i) => (
-                      <path
-                        key={i}
-                        d={`M${280 + i * 20} ${100 + i * 20} L${320 + i * 20} ${100 + i * 20
-                          }`}
-                        opacity="0.6"
-                      >
-                        <animate
-                          attributeName="opacity"
-                          values="0.6;1;0.6"
-                          dur="2s"
-                          begin={`${i * 0.2}s`}
-                          repeatCount="indefinite"
-                        />
-                      </path>
-                    ))}
                   </g>
+
+                  {/* Inner Core Pulse */}
+                  <circle cx="250" cy="250" r="40" fill="url(#core)">
+                    <animate attributeName="r" values="35; 45; 35" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.6; 1; 0.6" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="250" cy="250" r="20" fill="var(--primary)" filter="url(#blurGlow)" />
+
+                  {/* Connecting Lines */}
+                  <path d="M 250 150 L 250 50" stroke="url(#glow)" strokeWidth="1" opacity="0.5" strokeDasharray="4 4" />
+                  <path d="M 336.6 200 L 423.2 150" stroke="url(#glow)" strokeWidth="1" opacity="0.3" />
+                  <path d="M 163.4 300 L 76.8 350" stroke="url(#glow)" strokeWidth="1" opacity="0.4" />
                 </g>
 
-                {/* Floating Elements */}
-                {[...Array(3)].map((_, i) => (
-                  <circle
-                    key={i}
-                    cx={100 + i * 100}
-                    cy={50 + i * 30}
-                    r="10"
-                    className="text-primary"
-                    fill="currentColor"
-                    opacity="0.3"
-                  >
-                    <animate
-                      attributeName="cy"
-                      values={`${50 + i * 30};${40 + i * 30};${50 + i * 30}`}
-                      dur={`${2 + i}s`}
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                ))}
+                {/* Counter Rotating Elements */}
+                <g style={{ transformOrigin: "250px 250px" }}>
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="360 250 250"
+                    to="0 250 250"
+                    dur="25s"
+                    repeatCount="indefinite"
+                  />
+                  <circle cx="250" cy="250" r="165" fill="none" stroke="var(--primary)" strokeWidth="1" strokeDasharray="1 12" opacity="0.4" />
+                  <circle cx="415" cy="250" r="3" fill="#34d399" filter="url(#blurGlow)" />
+                  <circle cx="85" cy="250" r="5" fill="#22c55e" filter="url(#blurGlow)" />
+                </g>
+
+                {/* Floating Particles */}
+                {[...Array(6)].map((_, i) => {
+                  const seed1 = (i * 137.5) % 1;
+                  const seed2 = (i * 93.1) % 1;
+                  const seed3 = (i * 21.3) % 1;
+                  const cx = 150 + seed1 * 200;
+                  const cy = 150 + seed2 * 200;
+                  const r = seed3 * 3 + 1;
+                  const dur1 = 3 + seed1 * 4;
+                  const dur2 = 2 + seed2 * 3;
+                  
+                  return (
+                    <circle
+                      key={i}
+                      cx={cx}
+                      cy={cy}
+                      r={r}
+                      fill="#4ade80"
+                      opacity="0.6"
+                      filter="url(#blurGlow)"
+                    >
+                      <animate 
+                        attributeName="cy" 
+                        values={`${cy};${cy - 50};${cy}`} 
+                        dur={`${dur1}s`} 
+                        repeatCount="indefinite" 
+                      />
+                      <animate 
+                        attributeName="opacity" 
+                        values="0.2; 0.8; 0.2" 
+                        dur={`${dur2}s`} 
+                        repeatCount="indefinite" 
+                      />
+                    </circle>
+                  );
+                })}
               </svg>
             </div>
           </motion.div>

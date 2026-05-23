@@ -87,10 +87,10 @@ const Skills = () => {
   const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
 
   return (
-    <section id="skills" className="py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-background to-background/80 relative overflow-hidden">
+    <section id="skills" className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-background">
       {/* Decorative blurred blobs */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-primary/10 rounded-full blur-[100px] -z-10" />
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-[100px] -z-10" />
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-[pulse_8s_ease-in-out_infinite]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] animate-[pulse_10s_ease-in-out_infinite_reverse]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -143,7 +143,7 @@ const Skills = () => {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="bg-card p-5 rounded-2xl border border-border shadow-sm hover:shadow-md hover:border-primary/50 transition-all group relative flex items-center justify-center min-h-[140px]"
+                      className="bg-card/40 backdrop-blur-md p-5 rounded-2xl border border-border/50 shadow-sm hover:bg-card/60 hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:border-primary/50 transition-all duration-500 group relative flex items-center justify-center min-h-[140px] group-hover:-translate-y-2"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
