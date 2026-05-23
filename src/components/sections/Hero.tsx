@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, MousePointer2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -17,7 +17,47 @@ import {
   SiFastapi,
 } from "react-icons/si";
 
+const TYPING_TEXTS = [
+  "System Initialized: Access Granted",
+  "Establishing Secure Connection...",
+  "Loading Backend Architecture...",
+  "Optimizing Database Queries...",
+  "Ready to Build Scalable Solutions."
+];
+
 const Hero = () => {
+  const [displayText, setDisplayText] = useState("");
+  const [textIndex, setTextIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    const currentText = TYPING_TEXTS[textIndex];
+
+    if (isDeleting) {
+      if (displayText === "") {
+        setIsDeleting(false);
+        setTextIndex((prev) => (prev + 1) % TYPING_TEXTS.length);
+      } else {
+        timeout = setTimeout(() => {
+          setDisplayText(currentText.slice(0, displayText.length - 1));
+        }, 30);
+      }
+    } else {
+      if (displayText === currentText) {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2000);
+      } else {
+        timeout = setTimeout(() => {
+          setDisplayText(currentText.slice(0, displayText.length + 1));
+        }, 60);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, textIndex]);
+
   const technologies = [
     {
       name: "Python",
@@ -70,7 +110,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden bg-background">
+    <section id="about" className="min-h-screen relative overflow-hidden bg-background">
       {/* Animated gradient background blobs */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] animate-[pulse_8s_ease-in-out_infinite]" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-600/20 rounded-full blur-[120px] animate-[pulse_10s_ease-in-out_infinite_reverse]" />
@@ -87,8 +127,12 @@ const Hero = () => {
           >
             <div className="absolute -left-6 top-0 w-1 h-full bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full hidden md:block opacity-50" />
             <motion.div variants={itemVariants} className="mb-6 md:pl-8">
-              <span className="text-primary font-semibold tracking-wider uppercase text-sm inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md">
-                System Initialized: Access Granted
+              <span className="text-primary font-semibold tracking-wider uppercase text-sm inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md min-h-[34px]">
+                {displayText}
+                <span className="flex items-center ml-1.5 space-x-1">
+                  <span className="animate-[pulse_0.8s_ease-in-out_infinite] w-1.5 h-4 bg-primary/80 inline-block rounded-sm"></span>
+                  <span className="animate-[pulse_1.2s_ease-in-out_infinite] w-1.5 h-4 bg-primary/40 inline-block rounded-sm"></span>
+                </span>
               </span>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mt-6 mb-4 tracking-tight text-foreground">
                 I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-green-500 animate-gradient">Ram Krishna</span>
@@ -102,7 +146,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-lg sm:text-xl text-muted-foreground/80 leading-relaxed mb-10 md:pl-8 font-light"
             >
-              I architect robust, scalable, and high-performance backend systems. 
+              I architect robust, scalable, and high-performance backend systems.
               Turning complex problems into elegant, clean code solutions.
             </motion.p>
 
@@ -155,11 +199,42 @@ const Hero = () => {
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block"
+            className="hidden lg:block relative"
           >
+            {/* Fake multiplayer cursors */}
+            <motion.div
+              className="absolute z-20 flex flex-col items-start pointer-events-none"
+              animate={{
+                x: [0, 120, 60, -40, 0],
+                y: [0, -60, 100, 40, 0]
+              }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              style={{ top: "25%", left: "15%" }}
+            >
+              <MousePointer2 className="text-emerald-500 fill-emerald-500 w-6 h-6 -rotate-12 drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+              <div className="bg-emerald-500/90 backdrop-blur-sm text-white text-[10px] px-2.5 py-1 rounded-full mt-1 ml-4 shadow-lg font-medium tracking-wide border border-emerald-400/50">
+                Reviewer_01
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="absolute z-20 flex flex-col items-start pointer-events-none"
+              animate={{
+                x: [0, -80, -20, 80, 0],
+                y: [0, 80, -40, -80, 0]
+              }}
+              transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              style={{ top: "65%", right: "15%" }}
+            >
+              <MousePointer2 className="text-primary fill-primary w-6 h-6 -rotate-12 drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]" />
+              <div className="bg-primary/90 backdrop-blur-sm text-white text-[10px] px-2.5 py-1 rounded-full mt-1 ml-4 shadow-lg font-medium tracking-wide border border-primary/50">
+                Recruiter_XYZ
+              </div>
+            </motion.div>
+
             <div className="relative w-full h-[600px] flex items-center justify-center">
               {/* Abstract 3D/Tech Constellation SVG */}
-              <svg viewBox="0 0 500 500" className="w-full h-full max-w-[500px]">
+              <svg viewBox="0 0 500 500" className="w-full h-full max-w-[500px] overflow-visible">
                 <defs>
                   <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.8" />
@@ -169,7 +244,7 @@ const Hero = () => {
                     <stop offset="0%" stopColor="var(--primary)" stopOpacity="1" />
                     <stop offset="100%" stopColor="transparent" stopOpacity="0" />
                   </radialGradient>
-                  <filter id="blurGlow">
+                  <filter id="blurGlow" x="-50%" y="-50%" width="200%" height="200%">
                     <feGaussianBlur stdDeviation="8" result="coloredBlur" />
                     <feMerge>
                       <feMergeNode in="coloredBlur" />
@@ -178,6 +253,7 @@ const Hero = () => {
                   </filter>
                 </defs>
 
+                {/* Base SVG Orbits & Hexagon (Background Elements) */}
                 <g className="origin-center" style={{ transformOrigin: "250px 250px" }}>
                   <animateTransform
                     attributeName="transform"
@@ -187,28 +263,25 @@ const Hero = () => {
                     dur="40s"
                     repeatCount="indefinite"
                   />
-                  
-                  {/* Outer Orbit */}
+
+                  {/* Outer Orbit Path */}
                   <circle cx="250" cy="250" r="200" fill="none" stroke="url(#glow)" strokeWidth="1" strokeDasharray="4 8" opacity="0.5" />
-                  <circle cx="250" cy="50" r="6" fill="#22c55e" filter="url(#blurGlow)" />
-                  <circle cx="450" cy="250" r="4" fill="#10b981" />
-                  <circle cx="50" cy="250" r="8" fill="#22c55e" opacity="0.8" />
-                  
-                  {/* Middle Orbit */}
+
+                  {/* Middle Orbit Path */}
                   <circle cx="250" cy="250" r="130" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary" opacity="0.3" />
-                  
+
                   {/* Hexagon Core */}
                   <g filter="url(#blurGlow)">
-                    <polygon 
-                      points="250,150 336.6,200 336.6,300 250,350 163.4,300 163.4,200" 
-                      fill="none" 
-                      stroke="url(#glow)" 
+                    <polygon
+                      points="250,150 336.6,200 336.6,300 250,350 163.4,300 163.4,200"
+                      fill="none"
+                      stroke="url(#glow)"
                       strokeWidth="2"
                     />
-                    <polygon 
-                      points="250,170 319.3,210 319.3,290 250,330 180.7,290 180.7,210" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <polygon
+                      points="250,170 319.3,210 319.3,290 250,330 180.7,290 180.7,210"
+                      fill="none"
+                      stroke="currentColor"
                       className="text-primary"
                       strokeWidth="1"
                       opacity="0.5"
@@ -228,7 +301,7 @@ const Hero = () => {
                   <path d="M 163.4 300 L 76.8 350" stroke="url(#glow)" strokeWidth="1" opacity="0.4" />
                 </g>
 
-                {/* Counter Rotating Elements */}
+                {/* Counter Rotating Orbit (Background Elements) */}
                 <g style={{ transformOrigin: "250px 250px" }}>
                   <animateTransform
                     attributeName="transform"
@@ -239,11 +312,11 @@ const Hero = () => {
                     repeatCount="indefinite"
                   />
                   <circle cx="250" cy="250" r="165" fill="none" stroke="var(--primary)" strokeWidth="1" strokeDasharray="1 12" opacity="0.4" />
-                  <circle cx="415" cy="250" r="3" fill="#34d399" filter="url(#blurGlow)" />
-                  <circle cx="85" cy="250" r="5" fill="#22c55e" filter="url(#blurGlow)" />
                 </g>
 
-                {/* Floating Particles */}
+                {/* --- FOREGROUND ELEMENTS (Rendered on top, never go behind!) --- */}
+
+                {/* Floating Particles (Foreground) */}
                 {[...Array(6)].map((_, i) => {
                   const seed1 = (i * 137.5) % 1;
                   const seed2 = (i * 93.1) % 1;
@@ -252,8 +325,7 @@ const Hero = () => {
                   const cy = 150 + seed2 * 200;
                   const r = seed3 * 3 + 1;
                   const dur1 = 3 + seed1 * 4;
-                  const dur2 = 2 + seed2 * 3;
-                  
+
                   return (
                     <circle
                       key={i}
@@ -261,24 +333,47 @@ const Hero = () => {
                       cy={cy}
                       r={r}
                       fill="#4ade80"
-                      opacity="0.6"
+                      opacity="0.9"
                       filter="url(#blurGlow)"
                     >
-                      <animate 
-                        attributeName="cy" 
-                        values={`${cy};${cy - 50};${cy}`} 
-                        dur={`${dur1}s`} 
-                        repeatCount="indefinite" 
-                      />
-                      <animate 
-                        attributeName="opacity" 
-                        values="0.2; 0.8; 0.2" 
-                        dur={`${dur2}s`} 
-                        repeatCount="indefinite" 
+                      <animate
+                        attributeName="cy"
+                        values={`${cy};${cy - 50};${cy}`}
+                        dur={`${dur1}s`}
+                        repeatCount="indefinite"
                       />
                     </circle>
                   );
                 })}
+
+                {/* Rotating Outer Dots (Foreground) */}
+                <g className="origin-center" style={{ transformOrigin: "250px 250px" }}>
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 250 250"
+                    to="360 250 250"
+                    dur="40s"
+                    repeatCount="indefinite"
+                  />
+                  <circle cx="250" cy="50" r="6" fill="#22c55e" filter="url(#blurGlow)" />
+                  <circle cx="450" cy="250" r="4" fill="#10b981" />
+                  <circle cx="50" cy="250" r="8" fill="#22c55e" opacity="0.8" />
+                </g>
+
+                {/* Counter Rotating Dots (Foreground) */}
+                <g style={{ transformOrigin: "250px 250px" }}>
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="360 250 250"
+                    to="0 250 250"
+                    dur="25s"
+                    repeatCount="indefinite"
+                  />
+                  <circle cx="415" cy="250" r="3" fill="#34d399" filter="url(#blurGlow)" />
+                  <circle cx="85" cy="250" r="5" fill="#22c55e" filter="url(#blurGlow)" />
+                </g>
               </svg>
             </div>
           </motion.div>
