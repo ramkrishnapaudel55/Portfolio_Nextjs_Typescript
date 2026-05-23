@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
+
 import SectionHeading from '@/components/shared/SectionHeading';
 import {
   SiReact,
@@ -16,7 +15,6 @@ import {
   SiMysql,
   SiCplusplus,
   SiC,
-  SiMozilla,
   SiPostgresql,
   SiFastapi,
   SiPostman,

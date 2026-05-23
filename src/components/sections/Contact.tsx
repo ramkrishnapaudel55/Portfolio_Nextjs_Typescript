@@ -66,7 +66,7 @@ const onSubmit = async (values: FormValues) => {
       });
       form.reset();
     }
-  } catch (error) {
+  } catch {
     setStatus({
       type: 'error',
       message: 'Failed to send message. Please try again later.',

@@ -1,12 +1,12 @@
 "use client";
 
 import React from 'react';
-import Image from "next/image";
+
 import { motion } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Github, ExternalLink, MessageSquare, Users, Video, BrainCircuit, Lock, Globe } from 'lucide-react';
+import { Github, ExternalLink, Users, Video, BrainCircuit, Globe } from 'lucide-react';
 
 interface Project {
   title: string;
