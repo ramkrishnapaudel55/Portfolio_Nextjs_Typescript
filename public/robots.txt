@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ramkrishnapaudel.com.np/sitemap.xml
