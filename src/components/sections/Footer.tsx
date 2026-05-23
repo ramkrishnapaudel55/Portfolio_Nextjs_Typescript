@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const socialLinks = [
     {
       name: 'GitHub',
@@ -23,7 +23,7 @@ const Footer = () => {
     },
     {
       name: 'Email',
-    //   href: 'mailto:your.email@example.com',
+      //   href: 'mailto:your.email@example.com',
       href: 'https://mail.google.com/',
       icon: Mail
     }
@@ -56,7 +56,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h2 className="text-lg font-semibold">Ram Krishna Paudel</h2>
             <p className="text-sm text-muted-foreground">
-              Full Stack Developer building modern web applications with cutting-edge technologies.
+              Backend Developer building scalable systems with cutting-edge technologies.
             </p>
           </div>
 
@@ -67,7 +67,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >

@@ -22,34 +22,44 @@ interface Project {
 const Projects = () => {
   const projects: Project[] = [
     {
-      title: "Real-time Chat Application",
-      description: "A real-time messaging platform with instant communication capabilities, featuring real-time message delivery, user presence, and chat rooms.",
-      icon: <MessageSquare className="w-6 h-6" />,
-      tech: ["React.js", "Node.js", "WebSocket", "Express", "Tailwind CSS"],
-      type: "Full Stack",
-      demoLink: "#",
-      githubLink: "#",
-      image: "./projects/chat-app.png"
-    },
-    {
-      title: "User Management Dashboard",
-      description: "Modern user panel with advanced filtering, sorting, and data visualization capabilities for efficient user management.",
-      icon: <Users className="w-6 h-6" />,
-      tech: ["React.js", "Django REST", "Redux", "PostgreSQL", "JWT"],
-      type: "Frontend",
-      demoLink: "#",
-      githubLink: "#",
-      image: "/projects/user-panel.jpeg"
-    },
-    {
-      title: "Admin Control Panel",
-      description: "Feature-rich admin dashboard with real-time analytics, user management, and comprehensive system controls.",
+      title: "Leukaa E-commerce",
+      description: "A full-featured e-commerce platform with secure checkout, product management, and optimized backend architecture.",
       icon: <Globe className="w-6 h-6" />,
-      tech: ["React.js", "Django REST", "Chart.js", "Material UI"],
-      type: "Frontend",
-      demoLink: "#",
+      tech: ["Python", "Django REST", "Next.js", "PostgreSQL", "Docker"],
+      type: "Backend",
+      demoLink: "https://www.leukaa.com",
       githubLink: "#",
-      image: "/projects/admin-panel.jpeg"
+      image: "/projects/Leukaa_2.png"
+    },
+    {
+      title: "Nagarkata Ray of Hope Society",
+      description: "A social volunteer platform enabling community engagement, event management, and volunteer coordination.",
+      icon: <Users className="w-6 h-6" />,
+      tech: ["Django REST Framework", "Python", "Next.js", "PostgreSQL"],
+      type: "Backend",
+      demoLink: "https://www.nagarkatarayofhopesociety.org/",
+      githubLink: "#",
+      image: "/projects/Nagarkata.png"
+    },
+    {
+      title: "CV Builder",
+      description: "Robust backend services for a comprehensive resume building platform.",
+      icon: <BrainCircuit className="w-6 h-6" />,
+      tech: ["Django REST", "PostgreSQL", "Django", "Python"],
+      type: "Backend",
+      demoLink: "#",
+      githubLink: "https://github.com/CV-Builder-ResumeForge/Backend",
+      image: "/projects/CV_builder.png"
+    },
+    {
+      title: "Smart Vyapar",
+      description: "Scalable backend architecture for a business management mobile application.",
+      icon: <Globe className="w-6 h-6" />,
+      tech: ["Flutter", "Python", "Django", "Django REST", "PostgreSQL"],
+      type: "Backend",
+      demoLink: "#",
+      githubLink: "https://github.com/ramkrishnapaudel55/Smart_Vyapar_api",
+      image: "/projects/smartvyapar.jpeg"
     },
     {
       title: "Movie Ticket Booking",
@@ -58,7 +68,7 @@ const Projects = () => {
       tech: ["C", "File I/O", "Data Structures", "Algorithms"],
       type: "Console App",
       demoLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/ramkrishnapaudel55/MovieTicketBookingSystem",
       image: "/projects/movie-booking.jpg"
     },
     {
@@ -68,27 +78,17 @@ const Projects = () => {
       tech: ["VB.Net", "SQL Server", "Windows Forms"],
       type: "Desktop App",
       demoLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/ramkrishnapaudel55/QuizSystem.Net",
       image: "/projects/quiz-system.jpeg"
-    },
-    {
-      title: "Auth0 Integration",
-      description: "Secure authentication system with social login integration, JWT token management, and role-based access.",
-      icon: <Lock className="w-6 h-6" />,
-      tech: ["Auth0", "React.js", "JWT", "OAuth 2.0"],
-      type: "Security",
-      demoLink: "#",
-      githubLink: "#",
-      image: "/projects/auth0.jpeg"
     }
   ];
 
-  const categories = ["All", "Full Stack", "Frontend", "Console App", "Desktop App", "Security"] as const;
+  const categories = ["All", "Backend", "Console App", "Desktop App"] as const;
   type Category = (typeof categories)[number] | "All";
-  
+
   const [activeCategory, setActiveCategory] = React.useState<Category>("All");
 
-  const filteredProjects = projects.filter(project => 
+  const filteredProjects = projects.filter(project =>
     activeCategory === "All" ? true : project.type === activeCategory
   );
 
@@ -116,21 +116,21 @@ const Projects = () => {
 
   return (
     <div id="projects" className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-background">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="w-full px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center space-y-4 mb-12">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500 dark:from-purple-400 dark:to-pink-400"
           >
             Featured Projects
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -141,7 +141,7 @@ const Projects = () => {
         </div>
 
         <Tabs defaultValue="All" className="w-full">
-          <TabsList className="flex justify-center mb-8 bg-white dark:bg-[#09090b] rounded-lg p-1">
+          <TabsList className="flex flex-wrap justify-center mb-8 bg-white dark:bg-[#09090b] rounded-lg p-1 h-auto">
             {categories.map((category) => (
               <TabsTrigger
                 key={category}
@@ -214,8 +214,8 @@ const Projects = () => {
                       </p>
                       <div className="flex flex-wrap gap-2 pt-4">
                         {project.tech.map((tech, techIndex) => (
-                          <Badge 
-                            key={techIndex} 
+                          <Badge
+                            key={techIndex}
                             variant="outline"
                             className="bg-background/50 backdrop-blur-sm"
                           >

@@ -134,8 +134,8 @@ const onSubmit = async (values: FormValues) => {
               )}
             />
 
-            <div className="flex gap-4">
-              <Button type="submit" disabled={sending}>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button type="submit" disabled={sending} className="w-full sm:w-auto">
                 {sending ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -152,6 +152,7 @@ const onSubmit = async (values: FormValues) => {
               <Button
                 type="button"
                 variant="outline"
+                className="w-full sm:w-auto"
                 onClick={() => window.open('./Ramkrishna_CV.pdf', '_blank')}
               >
                 <Download className="mr-2 h-4 w-4" />

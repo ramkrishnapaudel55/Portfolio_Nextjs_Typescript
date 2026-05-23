@@ -13,23 +13,24 @@ import {
   SiDjango,
   SiNodedotjs,
   SiPostgresql,
+  SiPython,
+  SiFastapi,
 } from "react-icons/si";
 
 const Hero = () => {
   const technologies = [
-    { name: "React.js", icon: <SiReact className="w-5 h-5 text-[#61DAFB]" /> },
     {
-      name: "TypeScript",
-      icon: <SiTypescript className="w-5 h-5 text-[#3178C6]" />,
+      name: "Python",
+      icon: <SiPython className="w-5 h-5 text-[#3776AB]" />,
+    },
+    { name: "Django", icon: <SiDjango className="w-5 h-5 text-[#]" /> },
+    {
+      name: "Django REST Framework",
+      icon: <SiDjango className="w-5 h-5 text-[#092E20]" />,
     },
     {
-      name: "Next.js",
-      icon: <SiNextdotjs className="w-5 h-5 text-[#000000]" />,
-    },
-    { name: "Django", icon: <SiDjango className="w-5 h-5 text-[#092E20]" /> },
-    {
-      name: "Node.js",
-      icon: <SiNodedotjs className="w-5 h-5 text-[#339933]" />,
+      name: "Fast API",
+      icon: <SiFastapi className="w-5 h-5 text-[#FF9900]" />,
     },
     {
       name: "PostgreSQL",
@@ -90,7 +91,7 @@ const Hero = () => {
                 Ram Krishna Paudel
               </h1>
               <h2 className="text-2xl lg:text-3xl text-muted-foreground font-medium">
-                Full Stack Developer
+                Backend Developer
               </h2>
             </motion.div>
 
@@ -98,9 +99,9 @@ const Hero = () => {
               variants={itemVariants}
               className="text-lg text-muted-foreground mb-8"
             >
-              I craft robust and scalable web applications, bringing ideas to
-              life through clean code and intuitive user experiences.
-              Specializing in modern web technologies and full-stack
+              I craft robust and scalable backend systems, bringing ideas to
+              life through clean code and optimized architectures.
+              Specializing in modern web technologies and backend
               development.
             </motion.p>
 
@@ -128,11 +129,11 @@ const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row gap-4"
             >
               <Button
                 size="lg"
-                className="min-w-[160px] hover:scale-105 transition-transform"
+                className="w-full sm:w-auto min-w-[160px] hover:scale-105 transition-transform"
                 onClick={scrollToProjects}
               >
                 View Projects
@@ -140,7 +141,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="min-w-[160px] hover:scale-105 transition-transform"
+                className="w-full sm:w-auto min-w-[160px] hover:scale-105 transition-transform"
                 onClick={scrollToContact}
               >
                 Get in Touch
@@ -271,9 +272,8 @@ const Hero = () => {
                     {[...Array(5)].map((_, i) => (
                       <path
                         key={i}
-                        d={`M${280 + i * 20} ${100 + i * 20} L${320 + i * 20} ${
-                          100 + i * 20
-                        }`}
+                        d={`M${280 + i * 20} ${100 + i * 20} L${320 + i * 20} ${100 + i * 20
+                          }`}
                         opacity="0.6"
                       >
                         <animate
