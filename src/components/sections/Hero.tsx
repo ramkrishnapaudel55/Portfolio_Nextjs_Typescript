@@ -112,7 +112,7 @@ const Hero = () => {
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-600/20 rounded-full blur-[120px] animate-[pulse_10s_ease-in-out_infinite_reverse]" />
       <div className="absolute top-[40%] left-[60%] w-[30%] h-[30%] bg-green-600/20 rounded-full blur-[100px] animate-[pulse_12s_ease-in-out_infinite]" />
 
-      <div className="relative container mx-auto px-6 py-20 min-h-screen flex items-center z-10">
+      <div className="relative container mx-auto px-6 pt-32 pb-20 md:pt-40 min-h-screen flex items-center z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left content section */}
           <motion.div
