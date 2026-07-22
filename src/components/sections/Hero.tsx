@@ -134,7 +134,7 @@ const Hero = () => {
                 Hi, I&apos;m <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-green-500 animate-gradient">Ram Krishna</span>
               </h1>
               <h2 className="text-2xl sm:text-3xl lg:text-3xl text-muted-foreground font-medium">
-                Expert Backend Developer from Butwal, Nepal
+                Software Engineer from Butwal, Nepal
               </h2>
             </motion.div>
 
