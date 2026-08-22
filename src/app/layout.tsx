@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
 const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.ramkrishnapaudel55.com.np'),
   title: 'Ram Krishna Paudel | Software Engineer & Backend Developer',
   description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Software Engineer and Backend Developer. Explore my projects, skills, and experience in scalable systems, APIs, and web development.',
   keywords: [
