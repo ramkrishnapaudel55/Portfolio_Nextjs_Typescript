@@ -8,8 +8,8 @@ import type { Metadata } from 'next';
 const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Ram Krishna Paudel | Backend Developer & Software Engineer',
-  description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Backend Developer and Software Engineer. Explore my projects, skills, and experience in scalable systems, APIs, and web development.',
+  title: 'Ram Krishna Paudel | Software Engineer & Backend Developer',
+  description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Software Engineer and Backend Developer. Explore my projects, skills, and experience in scalable systems, APIs, and web development.',
   keywords: [
     'Ram Krishna Paudel', 
     'Ram Krishna Poudel', 
@@ -26,19 +26,38 @@ export const metadata: Metadata = {
     'APIs',
     'Scalable Systems'
   ],
-  authors: [{ name: 'Ram Krishna Paudel' }],
+  authors: [{ name: 'Ram Krishna Paudel', url: 'https://www.ramkrishnapaudel55.com.np' }],
   creator: 'Ram Krishna Paudel',
+  publisher: 'Ram Krishna Paudel',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: 'https://www.ramkrishnapaudel55.com.np',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    title: 'Ram Krishna Paudel | Backend Developer & Software Engineer',
-    description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Backend Developer and Software Engineer. Explore my projects, skills, and experience.',
+    url: 'https://www.ramkrishnapaudel55.com.np',
+    title: 'Ram Krishna Paudel | Software Engineer & Backend Developer',
+    description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Software Engineer and Backend Developer. Explore my projects, skills, and experience.',
     siteName: 'Ram Krishna Paudel Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg', // You can place an og-image.jpg in your public folder
+        width: 1200,
+        height: 630,
+        alt: 'Ram Krishna Paudel - Software Engineer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ram Krishna Paudel | Backend Developer & Software Engineer',
-    description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Backend Developer and Software Engineer. Explore my projects, skills, and experience.',
+    title: 'Ram Krishna Paudel | Software Engineer & Backend Developer',
+    description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Software Engineer and Backend Developer. Explore my projects, skills, and experience.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -50,6 +69,10 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  verification: {
+    // Add your Google Search Console verification ID here to verify site ownership
+    google: 'YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE', 
   },
 };
 

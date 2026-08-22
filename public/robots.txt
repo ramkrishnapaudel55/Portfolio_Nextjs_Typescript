@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Note: Replace https://www.ramkrishnapaudel55.com.np with your actual deployment URL
-Sitemap: https://www.ramkrishnapaudel55.com.np/sitemap.xml
