@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ramkrishnapaudel.com.np/sitemap.xml
+# Note: Replace https://www.ramkrishnapaudel55.com.np with your actual deployment URL
+Sitemap: https://www.ramkrishnapaudel55.com.np/sitemap.xml

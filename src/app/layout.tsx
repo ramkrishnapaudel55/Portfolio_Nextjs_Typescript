@@ -9,21 +9,36 @@ const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Ram Krishna Paudel | Backend Developer & Software Engineer',
-  description: 'Portfolio of Ram Krishna Paudel. Discover my projects, skills, and experience as a Backend Developer specializing in scalable systems and APIs.',
-  keywords: ['Ram Krishna Paudel', 'Ram Krishna Paudel portfolio', 'Backend Developer', 'Software Engineer', 'Web Developer', 'Nepal', 'Portfolio', 'Full Stack Developer', 'Node.js', 'Python'],
+  description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Backend Developer and Software Engineer. Explore my projects, skills, and experience in scalable systems, APIs, and web development.',
+  keywords: [
+    'Ram Krishna Paudel', 
+    'Ram Krishna Poudel', 
+    'Backend Developer', 
+    'Backend Engineer', 
+    'Software Engineer', 
+    'Software Developer',
+    'Web Developer', 
+    'Full Stack Developer',
+    'Nepal',
+    'Portfolio', 
+    'Node.js', 
+    'Python',
+    'APIs',
+    'Scalable Systems'
+  ],
   authors: [{ name: 'Ram Krishna Paudel' }],
   creator: 'Ram Krishna Paudel',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    title: 'Ram Krishna Paudel | Backend Developer',
-    description: 'Portfolio of Ram Krishna Paudel. Discover my projects, skills, and experience.',
+    title: 'Ram Krishna Paudel | Backend Developer & Software Engineer',
+    description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Backend Developer and Software Engineer. Explore my projects, skills, and experience.',
     siteName: 'Ram Krishna Paudel Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ram Krishna Paudel | Backend Developer',
-    description: 'Portfolio of Ram Krishna Paudel. Discover my projects, skills, and experience.',
+    title: 'Ram Krishna Paudel | Backend Developer & Software Engineer',
+    description: 'Portfolio of Ram Krishna Paudel (Poudel), a passionate Backend Developer and Software Engineer. Explore my projects, skills, and experience.',
   },
   robots: {
     index: true,

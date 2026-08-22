@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Note: Replace https://www.ramkrishnapaudel55.com.np/ with your actual deployment URL -->
   <url>
-    <loc>https://ramkrishnapaudel.com.np/</loc>
-    <lastmod>2026-05-23</lastmod>
+    <loc>https://www.ramkrishnapaudel55.com.np/</loc>
+    <lastmod>2024-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>

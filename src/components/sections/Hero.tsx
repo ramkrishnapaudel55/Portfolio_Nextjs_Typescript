@@ -131,10 +131,10 @@ const Hero = () => {
                 </span>
               </span>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mt-6 mb-4 tracking-tight text-foreground">
-                Hi, I&apos;m <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-green-500 animate-gradient">Ram Krishna</span>
+                Hi, I&apos;m <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-green-500 animate-gradient">Ram Krishna Paudel</span>
               </h1>
               <h2 className="text-2xl sm:text-3xl lg:text-3xl text-muted-foreground font-medium">
-                Software Engineer from Butwal, Nepal
+                Software Engineer from Nepal
               </h2>
             </motion.div>
 
